@@ -48,6 +48,9 @@ jobs:
       - name: Build with Next.js
         run: bun next build
 
+        - name: lista diretorio 
+        run: ls
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
