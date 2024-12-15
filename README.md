@@ -56,7 +56,7 @@ Uma lista de links úteis para ajuda no projeto:
 ## 🤓 Contribuidores
 
 <a href="https://github.com/NorteJs/nortejs/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=NorteJs/nortejs" />
+  <img width="64" height="64" src="https://contrib.rocks/image?repo=NorteJs/nortejs" />
 </a>
 
 ## Licença 📃
