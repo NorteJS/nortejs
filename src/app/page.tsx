@@ -8,7 +8,7 @@ import SponsorsSection from '../components/sponsors-section'
 import Footer from '../components/footer'
 // import { NavbarDemo } from '@/components/navDemo'
 import { NavigationMenuDemo } from '../components/navtest'
-import { GlareCardDemo } from '../components/sobreNossa'
+// import { GlareCardDemo } from '../components/sobreNossa'
 
 export default function Home() {
   return (
