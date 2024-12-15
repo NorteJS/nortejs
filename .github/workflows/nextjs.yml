@@ -49,7 +49,7 @@ jobs:
         run: bun next build
 
       - name: lista diretorio 
-        run: ls
+        run: ls -lah
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
