@@ -48,7 +48,10 @@ jobs:
       - name: Build with Next.js
         run: bun next build
 
-      - name: lista diretorio 
+      - name: lista diretorio total
+        run: cd ./out && ls -lah
+
+      - name: lista diretorio dentro la
         run: cd ./out && ls -lah
 
       - name: Upload artifact

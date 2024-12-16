@@ -3,6 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   output: 'export',
   basePath: '/nortejs',
+  assetPrefix: '/public',
   images: {
     unoptimized: true,
   },
