@@ -49,7 +49,7 @@ jobs:
         run: bun next build
 
       - name: lista diretorio total
-        run: cd ./out && ls -lah
+        run: ls -lah
 
       - name: lista diretorio dentro la
         run: cd ./out && ls -lah
