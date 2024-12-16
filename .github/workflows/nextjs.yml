@@ -46,7 +46,7 @@ jobs:
         run: bun install
 
       - name: Build with Next.js
-        run: bun next build && bun next export
+        run: bun next build
 
       - name: lista diretorio 
         run: ls -lah
