@@ -8,6 +8,7 @@ import SponsorsSection from '../components/sponsors-section'
 import Footer from '../components/footer'
 // import { NavbarDemo } from '@/components/navDemo'
 import { NavigationMenuDemo } from '../components/navtest'
+import Cube from '@/components/cube/cube'
 // import { GlareCardDemo } from '../components/sobreNossa'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       {/* <NavbarDemo /> */}
       {/* <HoveredLink /> */}
       <HeroSection />
+      <Cube/>
       <AboutSection />
       <EventsSection />
       <SponsorsSection />
