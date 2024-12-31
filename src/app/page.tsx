@@ -8,19 +8,21 @@ import SponsorsSection from '../components/sponsors-section'
 import Footer from '../components/footer'
 // import { NavbarDemo } from '@/components/navDemo'
 import { NavigationMenuDemo } from '../components/navtest'
-import Cube from '@/components/cube/cube'
+import ScreenSizeIndicator from '@/components/ScreenSizeIndicator'
+import { IconJsTs } from '@/components/iconJsTs'
 // import { GlareCardDemo } from '../components/sobreNossa'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
+      <ScreenSizeIndicator/>
       <Navbar />
       {/* <NavigationMenuDemo/> */}
       {/* <NavbarDemo /> */}
       {/* <HoveredLink /> */}
       <HeroSection />
-      <Cube/>
-      <AboutSection />
+      {/* <Cube/> */}
+      {/* <AboutSection /> */}
       <EventsSection />
       <SponsorsSection />
       <Footer />

@@ -4,13 +4,17 @@
 // import { GithubIcon, TwitterIcon } from 'lucide-react'
 // import { AnimatedText } from "./animated-text"
 import { TypewriterEffectSmoothDemo } from "./homeInicio"
+import { IconJsTs } from "./iconJsTs"
 // import Image from "next/image"
 // import { div } from "framer-motion/client"
 
 export default function HeroSection() {
   return (
-    <div className="mt-16 max-md:mt-8">
-      <TypewriterEffectSmoothDemo/>
+    <div className="mt-8 justify-center max-md:mt-16 max-lg:mt-20 flex items-center max-lg:flex-col">
+      <div className="max-lg:mr-4">
+      <TypewriterEffectSmoothDemo />
+      </div>
+      <IconJsTs/>
     </div>
 
 

@@ -23,7 +23,7 @@ const events = [
 
 export default function EventsSection() {
   return (
-    <section id="events" className="py-20 sm:mt-0 md:mt-0 lg:-mt-[300px]   bg-gray-900">
+    <section id="events" className="py-20 max-sm:mt-0 sm:mt-4 md:mt-12 lg:mt-[50px] bg-gray-900">
       <div className="container mx-auto px-4">
         <AnimatedText
           text="Próximos Eventos"
