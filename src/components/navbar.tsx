@@ -21,17 +21,17 @@ export default function Navbar() {
     <nav className="bg-black">
       <div className="container mx-auto px-4">
         <div className="flex justify-between  max-md:justify-between items-center"
-          style={{marginTop: "-20px"}}
-         >
+          style={{ marginTop: "-20px" }}
+        >
           <Link href="/" className="text-white text-2xl font-bold">
             {/* Norte<span className="text-yellow-400">JS</span> */}
-          <Image
-          src="/logo.svg"
-          width={125}
-          className='mt-3'
-          height={25}
-          alt='Logo nortejs'
-          />
+            <Image
+              src="/logo.svg"
+              width={125}
+              className='mt-3'
+              height={25}
+              alt='Logo nortejs'
+            />
           </Link>
           <div className="hidden md:block mr-36">
             <NavigationMenuDemo />
