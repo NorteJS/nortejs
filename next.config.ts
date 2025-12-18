@@ -1,13 +1,7 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
-  output: 'export',
-  basePath: '/nortejs',
-  assetPrefix: '/nortejs',
-  images: {
-    unoptimized: true,
-  },
-  // Outras opções de configuração aqui
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Set basePath only in production
+  basePath: process.env.NODE_ENV === 'development' ? '' : '/nortejs',
 };
 
 export default nextConfig;

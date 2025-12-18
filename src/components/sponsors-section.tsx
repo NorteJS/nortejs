@@ -16,10 +16,9 @@ const sponsors = [
 export default function SponsorsSection() {
   return (
     <section id="sponsors" className="py-20 bg-black">
-      <p>Norte</p>
       <div className="container mx-auto px-4">
         <AnimatedText
-          text="Nossos Patrocinadores"
+          text="Nossos Apoiadores"
           className="text-3xl font-bold text-center mb-12 text-white"
         />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">

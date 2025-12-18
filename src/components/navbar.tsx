@@ -8,17 +8,17 @@ import { NavigationMenuDemo } from './navtest'
 import Image from 'next/image'
 
 const navItems = [
-  { name: 'Sobre', href: '#about' },
-  { name: 'Eventos', href: '#events' },
-  { name: 'Patrocinadores', href: '#sponsors' },
-  { name: 'Contato', href: '#contact' },
+  { name: 'Sobre', href: '/sobre' },
+  { name: 'Eventos', href: '/eventos' },
+  { name: 'Apoiadores', href: '/apoio' },
+  { name: 'Contato', href: '/contato' },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="bg-black py-4">
+    <nav className="bg-black">
       <div className="container mx-auto px-4">
         <div className="flex justify-between  max-md:justify-between items-center"
           style={{marginTop: "-20px"}}
@@ -27,8 +27,8 @@ export default function Navbar() {
             {/* Norte<span className="text-yellow-400">JS</span> */}
           <Image
           src="/logo.svg"
-          width={80}
-          // className='w-10'
+          width={125}
+          className='mt-3'
           height={25}
           alt='Logo nortejs'
           />

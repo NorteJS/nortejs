@@ -17,22 +17,22 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Workshops",
-    href: "#workshops",
+    href: "/eventos/workshops",
     description: "Aprenda com especialistas em workshops práticos e interativos.",
   },
   {
     title: "Palestras",
-    href: "#talks",
+    href: "/eventos/palestras",
     description: "Assista a palestras inspiradoras de líderes da indústria.",
   },
   {
     title: "Networking",
-    href: "#networking",
+    href: "/eventos/networking",
     description: "Conecte-se com outros profissionais e expanda sua rede.",
   },
   {
     title: "Hackathon",
-    href: "#hackathon",
+    href: "/eventos/hackathon",
     description: "Participe de desafios de programação e mostre suas habilidades.",
   },
 ]
@@ -77,13 +77,13 @@ export function NavigationMenuDemo() {
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="#mission" title="Nossa Missão">
+              <ListItem href="/sobre#mission" title="Nossa Missão">
                 Promover o desenvolvimento web no Norte do Brasil.
               </ListItem>
-              <ListItem href="#team" title="Equipe">
+              <ListItem href="/sobre#team" title="Equipe">
                 Conheça os organizadores por trás do NorteJS.
               </ListItem>
-              <ListItem href="#history" title="História">
+              <ListItem href="/sobre#history" title="História">
                 A jornada do NorteJS desde sua fundação.
               </ListItem>
             </ul>
@@ -91,14 +91,14 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="#sponsors" legacyBehavior passHref>
+          <Link href="/apoio" legacyBehavior passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-black text-white hover:bg-gray-800 hover:text-yellow-400")}>
-              Patrocinadores
+              Apoiadores
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="#contact" legacyBehavior passHref>
+          <Link href="/contato" legacyBehavior passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-black text-white hover:bg-gray-800 hover:text-yellow-400")}>
               Contato
             </NavigationMenuLink>

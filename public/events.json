@@ -1,0 +1,24 @@
+[
+  {
+    "id": "jan-2026-meetup-1",
+    "slug": "meetup-janeiro",
+    "title": "Meetup NorteJS — Janeiro",
+    "type": "meetup",
+    "startsAt": "2026-01-18T19:00:00-03:00",
+    "location": "Belém/PA (local a confirmar)",
+    "description": "Encontro da comunidade com talks curtas e networking. Em breve divulgaremos local e agenda.",
+    "registrationOpen": true,
+    "registrationUrl": "https://example.com/inscricoes"
+  },
+  {
+    "id": "jan-2026-talks-1",
+    "slug": "palestras-janeiro",
+    "title": "Palestras: JavaScript & TypeScript na prática",
+    "type": "talks",
+    "startsAt": "2026-01-25T19:00:00-03:00",
+    "location": "Online (link a confirmar)",
+    "description": "Noite de palestras com foco em front-end e tooling moderno. Submissões/agenda em breve.",
+    "registrationOpen": false,
+    "registrationUrl": null
+  }
+]
