@@ -3,14 +3,12 @@
 import { motion } from "framer-motion"
 import { AnimatedText } from "./animated-text"
 import Image from "next/image"
+import Link from "next/link"
 
 const sponsors = [
-  { name: "Sponsor 1", logo: "/placeholder.svg" },
-  { name: "Sponsor 2", logo: "/placeholder.svg" },
-  { name: "Sponsor 3", logo: "/placeholder.svg" },
-  { name: "Sponsor 4", logo: "/placeholder.svg" },
-  { name: "Sponsor 5", logo: "/placeholder.svg" },
-  { name: "Sponsor 6", logo: "/placeholder.svg" },
+  { name: "PHP Manaus", logo: "/supporters/php.jpg", link: "https://phpmanaus.com.br/" },
+  { name: "Java Amazonas", logo: "/supporters/javaamzonas.jpg" ,link: "https://javaamazonas.com.br/" },
+  { name: "Uninorte", logo: "/supporters/uninorte.png",link: "https://www.uninorte.com.br/" },
 ]
 
 export default function SponsorsSection() {
@@ -30,13 +28,15 @@ export default function SponsorsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex items-center justify-center"
             >
-              <Image
-                src={sponsor.logo}
-                alt={sponsor.name}
-                width={150}
-                height={150}
-                className="max-w-full h-auto"
-              />
+              <Link href={sponsor.link} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  width={150}
+                  height={150}
+                  className="max-w-full hover:scale-105 transition-transform duration-300 rounded-full h-auto"
+                />
+              </Link>
             </motion.div>
           ))}
         </div>

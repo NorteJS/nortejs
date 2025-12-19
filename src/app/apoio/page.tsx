@@ -4,7 +4,7 @@ import SponsorsSection from "@/components/sponsors-section";
 
 export default function ApoioPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black flex flex-col">
       <Navbar />
       <SponsorsSection />
       <Footer />

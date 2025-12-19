@@ -10,4 +10,8 @@ export type EventItem = {
   description: string;
   registrationOpen: boolean;
   registrationUrl?: string | null;
+  coverImage?: string | null;
+  url?: string | null;
+  venueMapUrl?: string | null;
+  venueMapEmbedUrl?: string | null;
 };

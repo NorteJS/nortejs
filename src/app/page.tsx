@@ -14,8 +14,8 @@ import { IconJsTs } from '@/components/iconJsTs'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
-      <ScreenSizeIndicator/>
+    <main className="min-h-screen bg-black flex flex-col">
+      <ScreenSizeIndicator />
       <Navbar />
       {/* <NavigationMenuDemo/> */}
       {/* <NavbarDemo /> */}

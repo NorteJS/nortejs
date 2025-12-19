@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 
 export default function HackathonPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black flex flex-col">
       <Navbar />
       <section className="py-20 bg-black">
         <div className="container mx-auto px-4">

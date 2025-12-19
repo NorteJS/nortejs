@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 
 export default function ContatoPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black flex flex-col">
       <Navbar />
       <section className="py-20 bg-black" id="contact">
         <div className="container mx-auto px-4">
