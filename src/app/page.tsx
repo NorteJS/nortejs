@@ -15,7 +15,7 @@ import { IconJsTs } from '@/components/iconJsTs'
 export default function Home() {
   return (
     <main className="min-h-screen bg-black flex flex-col">
-      <ScreenSizeIndicator />
+      {process.env.NODE_ENV === 'development' && <ScreenSizeIndicator />}
       <Navbar />
       {/* <NavigationMenuDemo/> */}
       {/* <NavbarDemo /> */}
