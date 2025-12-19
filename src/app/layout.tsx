@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   description: "Comunidade de desenvolvedores JavaScript e TypeScript do Norte",
   authors: [{ name: "NorteJS", url: SITE_URL }],
   icons: {
-    icon: "/logo.icon",
-    shortcut: "/favicon.ico",
+    icon: "/logo.svg",
+    shortcut: "/logo-sm.svg",
     apple: "/NorteJsMascote.jpeg",
   },
   openGraph: {
