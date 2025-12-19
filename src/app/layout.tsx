@@ -14,10 +14,6 @@ export const metadata: Metadata = {
   },
   description: "Comunidade de desenvolvedores JavaScript e TypeScript do Norte",
   authors: [{ name: "NorteJS", url: SITE_URL }],
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
   icons: {
     icon: "/logo.svg",
     shortcut: "/favicon.ico",
@@ -45,6 +41,16 @@ export const metadata: Metadata = {
     description: "Comunidade de desenvolvedores JavaScript e TypeScript do Norte",
     images: [`${SITE_URL}/NorteJsMascote.jpeg`],
   },
+};
+
+// Move themeColor to viewport export per Next.js docs
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({
