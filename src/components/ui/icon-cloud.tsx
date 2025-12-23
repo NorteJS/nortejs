@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Cloud, fetchSimpleIcons, ICloud, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 
@@ -79,19 +80,17 @@ export default function IconCloud({
   };
 
   return (
-    <Cloud {...cloudProps}>
-      <>
-        <>{renderedIcons}</>
-        {imageArray &&
-          imageArray.length > 0 &&
-          imageArray.map((image, index) => {
-            return (
-              <a key={index} href="#" onClick={(e) => e.preventDefault()}>
-                <img height="42" width="42" alt="A globe" src={image} />
-              </a>
-            );
-          })}
-      </>
+    <Cloud {...cloudProps} containerProps={{ ...cloudProps.containerProps }}>
+      {renderedIcons()}
+      {imageArray &&
+        imageArray.length > 0 &&
+        imageArray.map((image, index) => {
+          return (
+            <a key={image ?? index} href="#" onClick={(e) => e.preventDefault()}>
+              <Image height={42} width={42} alt="A globe" src={image} />
+            </a>
+          );
+        })}
     </Cloud>
   );
 }
