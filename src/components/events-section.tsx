@@ -107,7 +107,7 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
           ) : null}
 
           <div className="absolute left-4 top-4 flex items-center gap-2">
-            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-green-500/15 text-green-200 border border-green-500/25">
+            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-green-500/75 text-white border border-green-500/85">
               {eventTypeLabel(event.type)}
             </span>
             <span
