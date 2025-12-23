@@ -18,7 +18,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="bg-black">
+    <nav className="relative z-50 bg-black">
       <div className="container mx-auto px-4">
         <div className="flex justify-between  max-md:justify-between items-center"
           style={{ marginTop: "-20px" }}
@@ -48,7 +48,7 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-black  border-b border-slate-800/15"
+          className="md:hidden bg-black border-b border-slate-800/15 relative z-50"
         >
           {navItems.map((item) => (
             <Link
