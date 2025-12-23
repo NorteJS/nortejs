@@ -1,16 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { cn } from "../lib/utils"
+import { motion } from "framer-motion";
+import { cn } from "../lib/utils";
 
-export const AnimatedText = ({
-  text,
-  className,
-}: {
-  text: string
-  className?: string
-}) => {
-  const words = text.split(" ")
+export const AnimatedText = ({ text, className }: { text: string; className?: string }) => {
+  const words = text.split(" ");
 
   const container = {
     hidden: { opacity: 0 },
@@ -18,7 +12,7 @@ export const AnimatedText = ({
       opacity: 1,
       transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
     }),
-  }
+  };
 
   const child = {
     visible: {
@@ -39,7 +33,7 @@ export const AnimatedText = ({
         stiffness: 100,
       },
     },
-  }
+  };
 
   return (
     <motion.div
@@ -49,15 +43,10 @@ export const AnimatedText = ({
       animate="visible"
     >
       {words.map((word, index) => (
-        <motion.span
-          variants={child}
-          key={index}
-          className="mr-2"
-        >
+        <motion.span variants={child} key={index} className="mr-2">
           {word}
         </motion.span>
       ))}
     </motion.div>
-  )
-}
-
+  );
+};

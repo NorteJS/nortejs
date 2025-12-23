@@ -1,43 +1,43 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { AnimatedText } from "./animated-text"
-import { useEffect, useMemo, useState } from "react"
-import type { EventItem } from "@/lib/events"
-import { fetchEvents } from "@/lib/get-events"
-import Image from "next/image"
-import { Calendar, MapPin, ExternalLink } from "lucide-react"
+import type { EventItem } from "@/lib/events";
+import { fetchEvents } from "@/lib/get-events";
+import { motion } from "framer-motion";
+import { Calendar, ExternalLink, MapPin } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+import { AnimatedText } from "./animated-text";
 
 function formatEventDate(iso: string) {
-  const date = new Date(iso)
-  if (Number.isNaN(date.getTime())) return iso
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
 
   return new Intl.DateTimeFormat("pt-BR", {
     day: "2-digit",
     month: "short",
     year: "numeric",
-  }).format(date)
+  }).format(date);
 }
 
 function eventTypeLabel(type: EventItem["type"]) {
   switch (type) {
     case "meetup":
-      return "Meetup"
+      return "Meetup";
     case "workshop":
-      return "Workshop"
+      return "Workshop";
     case "talks":
-      return "Palestras"
+      return "Palestras";
     case "networking":
-      return "Networking"
+      return "Networking";
     case "hackathon":
-      return "Hackathon"
+      return "Hackathon";
     default:
-      return "Evento"
+      return "Evento";
   }
 }
 
 function EventCard({ event, index }: { event: EventItem; index: number }) {
-  const [mapOpen, setMapOpen] = useState(false)
+  const [mapOpen, setMapOpen] = useState(false);
 
   return (
     <motion.div
@@ -64,10 +64,7 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
           {/* botão + preview do mapa (desktop): abre apenas ao hover no botão */}
           {event.venueMapUrl ? (
             <div className="hidden lg:block absolute bottom-4 left-4 right-4">
-              <div
-                className="relative"
-                onMouseLeave={() => setMapOpen(false)}
-              >
+              <div className="relative" onMouseLeave={() => setMapOpen(false)}>
                 <a
                   href={event.venueMapUrl}
                   target="_blank"
@@ -197,25 +194,25 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function EventsSection() {
-  const [events, setEvents] = useState<EventItem[] | null>(null)
+  const [events, setEvents] = useState<EventItem[] | null>(null);
 
   useEffect(() => {
-    let cancelled = false
+    let cancelled = false;
     fetchEvents()
       .then((data) => {
-        if (!cancelled) setEvents(data)
+        if (!cancelled) setEvents(data);
       })
       .catch(() => {
-        if (!cancelled) setEvents([])
-      })
+        if (!cancelled) setEvents([]);
+      });
     return () => {
-      cancelled = true
-    }
-  }, [])
+      cancelled = true;
+    };
+  }, []);
 
   const content = useMemo(() => {
     if (events === null) {
@@ -231,7 +228,7 @@ export default function EventsSection() {
             </div>
           </div>
         </div>
-      )
+      );
 
       return (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -239,7 +236,7 @@ export default function EventsSection() {
             <div key={i}>{skeletonCard}</div>
           ))}
         </div>
-      )
+      );
     }
 
     if (events.length === 0) {
@@ -247,7 +244,7 @@ export default function EventsSection() {
         <div className="bg-black p-6 rounded-lg text-gray-300">
           Ainda não publicamos a agenda. Volte em breve.
         </div>
-      )
+      );
     }
 
     return (
@@ -256,8 +253,8 @@ export default function EventsSection() {
           <EventCard key={event.id} event={event} index={index} />
         ))}
       </div>
-    )
-  }, [events])
+    );
+  }, [events]);
 
   return (
     <section
@@ -275,6 +272,5 @@ export default function EventsSection() {
         {content}
       </div>
     </section>
-  )
+  );
 }
-

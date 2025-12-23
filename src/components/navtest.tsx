@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
+import Link from "next/link";
+import * as React from "react";
 
-import { cn } from "../lib/utils"
+import { cn } from "../lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "./ui/navigation-menu"
+} from "./ui/navigation-menu";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -35,23 +35,20 @@ const components: { title: string; href: string; description: string }[] = [
     href: "/eventos/hackathon",
     description: "Participe de desafios de programação e mostre suas habilidades.",
   },
-]
-
+];
 
 export function NavigationMenuDemo() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-black text-white hover:bg-gray-800 hover:text-yellow-400">Eventos</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-black text-white hover:bg-gray-800 hover:text-yellow-400">
+            Eventos
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-black">
               {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
+                <ListItem key={component.title} title={component.title} href={component.href}>
                   {component.description}
                 </ListItem>
               ))}
@@ -59,7 +56,9 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-black text-white hover:bg-gray-800 hover:text-yellow-400">Sobre</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-black text-white hover:bg-gray-800 hover:text-yellow-400">
+            Sobre
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] bg-black">
               <li className="row-span-3">
@@ -68,9 +67,7 @@ export function NavigationMenuDemo() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-yellow-400/50 to-yellow-400 p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
-                    <div className="mb-2 mt-4 text-lg font-medium text-black">
-                      NorteJS
-                    </div>
+                    <div className="mb-2 mt-4 text-lg font-medium text-black">NorteJS</div>
                     <p className="text-sm leading-tight text-black">
                       Expandindo o horizonte do desenvolvimento web no Norte do Brasil.
                     </p>
@@ -92,46 +89,52 @@ export function NavigationMenuDemo() {
 
         <NavigationMenuItem>
           <Link href="/apoio" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-black text-white hover:bg-gray-800 hover:text-yellow-400")}>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-black text-white hover:bg-gray-800 hover:text-yellow-400",
+              )}
+            >
               Apoiadores
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/contato" legacyBehavior passHref>
-            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-black text-white hover:bg-gray-800 hover:text-yellow-400")}>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-black text-white hover:bg-gray-800 hover:text-yellow-400",
+              )}
+            >
               Contato
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-800 hover:text-yellow-400 focus:bg-gray-800 focus:text-yellow-400",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none text-white">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-gray-400">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"
-
+const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWithoutRef<"a">>(
+  ({ className, title, children, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-800 hover:text-yellow-400 focus:bg-gray-800 focus:text-yellow-400",
+              className,
+            )}
+            {...props}
+          >
+            <div className="text-sm font-medium leading-none text-white">{title}</div>
+            <p className="line-clamp-2 text-sm leading-snug text-gray-400">{children}</p>
+          </a>
+        </NavigationMenuLink>
+      </li>
+    );
+  },
+);
+ListItem.displayName = "ListItem";

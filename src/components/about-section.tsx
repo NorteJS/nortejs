@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Code2Icon, UsersIcon, CalendarIcon } from 'lucide-react'
-import { AnimatedText } from "./animated-text"
-import { GlareCardAbout } from "./sobreNossa"
+import { CalendarIcon, Code2Icon, UsersIcon } from "lucide-react";
+import { AnimatedText } from "./animated-text";
+import { GlareCardAbout } from "./sobreNossa";
 
 const features = [
   {
     icon: Code2Icon,
     title: "Workshops Técnicos",
-    description: "Aprenda as últimas tecnologias em JavaScript e TypeScript com nossos workshops práticos.",
+    description:
+      "Aprenda as últimas tecnologias em JavaScript e TypeScript com nossos workshops práticos.",
   },
   {
     icon: UsersIcon,
@@ -19,9 +19,10 @@ const features = [
   {
     icon: CalendarIcon,
     title: "Eventos Regulares",
-    description: "Participe de nossos meetups mensais e mantenha-se atualizado com as tendências do mercado.",
+    description:
+      "Participe de nossos meetups mensais e mantenha-se atualizado com as tendências do mercado.",
   },
-]
+];
 
 export default function AboutSection() {
   return (
@@ -30,8 +31,8 @@ export default function AboutSection() {
         <AnimatedText
           text="Sobre Nossa Comunidade"
           className="text-4xl font-bold text-center mb-12 text-white"
-          />
-          <GlareCardAbout/>
+        />
+        <GlareCardAbout />
         {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
@@ -49,6 +50,5 @@ export default function AboutSection() {
         </div> */}
       </div>
     </section>
-  )
+  );
 }
-

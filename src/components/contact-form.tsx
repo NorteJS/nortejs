@@ -1,40 +1,40 @@
-"use client"
+"use client";
 
-import { useMemo, useState } from "react"
+import { useMemo, useState } from "react";
 
 type Props = {
-  toEmail: string
-}
+  toEmail: string;
+};
 
 export default function ContactForm({ toEmail }: Props) {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [subject, setSubject] = useState("")
-  const [message, setMessage] = useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   const mailtoHref = useMemo(() => {
-    const safeSubject = subject.trim() || "Contato - NorteJS"
+    const safeSubject = subject.trim() || "Contato - NorteJS";
     const bodyLines = [
       `Nome: ${name || "(não informado)"}`,
       `Email: ${email || "(não informado)"}`,
       "",
       message || "(mensagem em branco)",
-    ]
+    ];
 
     const params = new URLSearchParams({
       subject: safeSubject,
       body: bodyLines.join("\n"),
-    })
+    });
 
-    return `mailto:${toEmail}?${params.toString()}`
-  }, [toEmail, subject, name, email, message])
+    return `mailto:${toEmail}?${params.toString()}`;
+  }, [toEmail, subject, name, email, message]);
 
   return (
     <form
       className="mt-8 grid grid-cols-1 gap-4 max-w-2xl"
       onSubmit={(e) => {
-        e.preventDefault()
-        window.location.href = mailtoHref
+        e.preventDefault();
+        window.location.href = mailtoHref;
       }}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -99,8 +99,9 @@ export default function ContactForm({ toEmail }: Props) {
       </div>
 
       <p className="text-xs text-gray-400">
-        Observação: por ser um site estático, o envio abre seu cliente de email (Gmail/Outlook/etc.).
+        Observação: por ser um site estático, o envio abre seu cliente de email
+        (Gmail/Outlook/etc.).
       </p>
     </form>
-  )
+  );
 }

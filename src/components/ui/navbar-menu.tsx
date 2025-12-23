@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const transition = {
   type: "spring",
@@ -98,9 +98,7 @@ export const ProductItem = ({
         className="flex-shrink-0 rounded-md shadow-2xl"
       />
       <div>
-        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
-          {title}
-        </h4>
+        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">{title}</h4>
         <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
           {description}
         </p>
@@ -111,10 +109,7 @@ export const ProductItem = ({
 
 export const HoveredLink = ({ children, ...rest }: any) => {
   return (
-    <Link
-      {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
-    >
+    <Link {...rest} className="text-neutral-700 dark:text-neutral-200 hover:text-black ">
       {children}
     </Link>
   );

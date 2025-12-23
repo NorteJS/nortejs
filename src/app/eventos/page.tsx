@@ -1,6 +1,6 @@
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 import EventsSection from "@/components/events-section";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 
 export default function EventosPage() {
   return (

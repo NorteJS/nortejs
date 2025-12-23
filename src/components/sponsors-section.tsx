@@ -1,15 +1,19 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { AnimatedText } from "./animated-text"
-import Image from "next/image"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { AnimatedText } from "./animated-text";
 
 const sponsors = [
   { name: "PHP Manaus", logo: "/supporters/php.jpg", link: "https://phpmanaus.com.br/" },
-  { name: "Java Amazonas", logo: "/supporters/javaamzonas.jpg" ,link: "https://javaamazonas.com.br/" },
-  { name: "Uninorte", logo: "/supporters/uninorte.png",link: "https://www.uninorte.com.br/" },
-]
+  {
+    name: "Java Amazonas",
+    logo: "/supporters/javaamzonas.jpg",
+    link: "https://javaamazonas.com.br/",
+  },
+  { name: "Uninorte", logo: "/supporters/uninorte.png", link: "https://www.uninorte.com.br/" },
+];
 
 export default function SponsorsSection() {
   return (
@@ -42,5 +46,5 @@ export default function SponsorsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

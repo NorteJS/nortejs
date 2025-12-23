@@ -1,6 +1,6 @@
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 import AboutSection from "@/components/about-section";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import OrganizersSection from "@/components/organizers-section";
 
 export default function SobrePage() {

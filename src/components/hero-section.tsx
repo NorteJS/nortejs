@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 // import { motion } from "framer-motion"
 // import { GithubIcon, TwitterIcon } from 'lucide-react'
 // import { AnimatedText } from "./animated-text"
-import { TypewriterEffectSmoothDemo } from "./homeInicio"
-import { IconJsTs } from "./iconJsTs"
+import { TypewriterEffectSmoothDemo } from "./homeInicio";
+import { IconJsTs } from "./iconJsTs";
 // import Image from "next/image"
 // import { div } from "framer-motion/client"
 
@@ -25,10 +25,9 @@ export default function HeroSection() {
       </div>
     </section>
 
-
     // {/* <Image
     // className="max-md:hidden opacity-80 rounded-3xl w-100 h-52"
-    // src="/NorteJsMascote.jpeg" 
+    // src="/NorteJsMascote.jpeg"
     // width={320}
     // height={100}
     // alt="Mascote nortejs"
@@ -60,6 +59,5 @@ export default function HeroSection() {
     //       initial={{ opacity: 0, y: 20 }}
     //       animate={{ opacity: 1, y: 0 }}
     //       transition={{ duration: 0.8, delay: 0.4 }}
-  )
+  );
 }
-
