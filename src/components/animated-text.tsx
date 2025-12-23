@@ -1,12 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "motion/react";
 
 export const AnimatedText = ({ text, className }: { text: string; className?: string }) => {
   const words = text.split(" ");
 
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
@@ -14,7 +14,7 @@ export const AnimatedText = ({ text, className }: { text: string; className?: st
     }),
   };
 
-  const child = {
+  const child: Variants = {
     visible: {
       opacity: 1,
       x: 0,
