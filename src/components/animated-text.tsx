@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { cn } from "../lib/utils";
 
 export const AnimatedText = ({ text, className }: { text: string; className?: string }) => {
   const words = text.split(" ");
