@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 type Props = {
   toEmail: string;
@@ -12,22 +12,20 @@ export default function ContactForm({ toEmail }: Props) {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const mailtoHref = useMemo(() => {
-    const safeSubject = subject.trim() || "Contato - NorteJS";
-    const bodyLines = [
-      `Nome: ${name || "(não informado)"}`,
-      `Email: ${email || "(não informado)"}`,
-      "",
-      message || "(mensagem em branco)",
-    ];
+  const safeSubject = subject.trim() || "Contato - NorteJS";
+  const bodyLines = [
+    `Nome: ${name || "(não informado)"}`,
+    `Email: ${email || "(não informado)"}`,
+    "",
+    message || "(mensagem em branco)",
+  ];
 
-    const params = new URLSearchParams({
-      subject: safeSubject,
-      body: bodyLines.join("\n"),
-    });
+  const params = new URLSearchParams({
+    subject: safeSubject,
+    body: bodyLines.join("\n"),
+  });
 
-    return `mailto:${toEmail}?${params.toString()}`;
-  }, [toEmail, subject, name, email, message]);
+  const mailtoHref = `mailto:${toEmail}?${params.toString()}`;
 
   return (
     <form

@@ -5,7 +5,7 @@ import { fetchEvents } from "@/lib/get-events";
 import { motion } from "framer-motion";
 import { Calendar, ExternalLink, MapPin } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatedText } from "./animated-text";
 
 function formatEventDate(iso: string) {
@@ -214,47 +214,44 @@ export default function EventsSection() {
     };
   }, []);
 
-  const content = useMemo(() => {
-    if (events === null) {
-      const skeletonCard = (
-        <div className="animate-pulse bg-black/30 rounded-xl border border-white/10 p-0 overflow-hidden">
-          <div className="h-52 md:h-56 lg:h-60 w-full bg-slate-700" />
-          <div className="p-6">
-            <div className="h-4 bg-slate-700 rounded w-3/4 mb-3" />
-            <div className="h-3 bg-slate-700 rounded w-1/2 mb-3" />
-            <div className="flex items-center gap-2 mt-4">
-              <div className="h-8 w-20 bg-slate-700 rounded-full" />
-              <div className="h-8 w-28 bg-slate-700 rounded-full" />
-            </div>
+  let content;
+  if (events === null) {
+    const skeletonCard = (
+      <div className="animate-pulse bg-black/30 rounded-xl border border-white/10 p-0 overflow-hidden">
+        <div className="h-52 md:h-56 lg:h-60 w-full bg-slate-700" />
+        <div className="p-6">
+          <div className="h-4 bg-slate-700 rounded w-3/4 mb-3" />
+          <div className="h-3 bg-slate-700 rounded w-1/2 mb-3" />
+          <div className="flex items-center gap-2 mt-4">
+            <div className="h-8 w-20 bg-slate-700 rounded-full" />
+            <div className="h-8 w-28 bg-slate-700 rounded-full" />
           </div>
         </div>
-      );
+      </div>
+    );
 
-      return (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i}>{skeletonCard}</div>
-          ))}
-        </div>
-      );
-    }
-
-    if (events.length === 0) {
-      return (
-        <div className="bg-black p-6 rounded-lg text-gray-300">
-          Ainda não publicamos a agenda. Volte em breve.
-        </div>
-      );
-    }
-
-    return (
+    content = (
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i}>{skeletonCard}</div>
+        ))}
+      </div>
+    );
+  } else if (events.length === 0) {
+    content = (
+      <div className="bg-black p-6 rounded-lg text-gray-300">
+        Ainda não publicamos a agenda. Volte em breve.
+      </div>
+    );
+  } else {
+    content = (
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {events.map((event, index) => (
           <EventCard key={event.id} event={event} index={index} />
         ))}
       </div>
     );
-  }, [events]);
+  }
 
   return (
     <section
