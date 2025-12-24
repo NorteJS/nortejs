@@ -60,7 +60,7 @@ export function NavigationMenuDemo() {
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b from-yellow-400/50 to-yellow-400 p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md md:p-6"
+                    className="flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b from-yellow-400/50 to-yellow-400 p-4 no-underline outline-none transition-all duration-200 select-none focus:shadow-md md:p-6"
                     href="/"
                   >
                     <div className="mb-2 text-lg font-medium sm:mt-4 text-black">NorteJS</div>
