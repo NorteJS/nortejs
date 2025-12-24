@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import type { CSSProperties } from "react";
 import { useRef } from "react";
 
 export const GlareCard = ({
@@ -39,7 +40,7 @@ export const GlareCard = ({
     "--radius": "48px",
     "--easing": "ease",
     "--transition": "var(--duration) var(--easing)",
-  } as any;
+  } as CSSProperties;
 
   const backgroundStyle = {
     "--step": "5%",

@@ -2,7 +2,7 @@
 
 import type { EventItem } from "@/lib/events";
 import { fetchEvents } from "@/lib/get-events";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Calendar, ExternalLink, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";

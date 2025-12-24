@@ -14,12 +14,11 @@ const basePath = isDev ? "" : process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const nextConfig: NextConfig = {
   basePath,
   trailingSlash: true,
-  reactCompiler: true,
   ...(isStaticExport
     ? {
-        output: "export",
-        images: { unoptimized: true },
-      }
+      output: "export",
+      images: { unoptimized: true },
+    }
     : {}),
 };
 
