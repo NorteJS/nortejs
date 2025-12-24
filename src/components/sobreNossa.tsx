@@ -1,5 +1,5 @@
+import { Code2Icon, UsersIcon } from "lucide-react";
 import { GlareCard } from "./ui/glare-card";
-import { Code2Icon, UsersIcon, CalendarIcon } from 'lucide-react'
 
 export function GlareCardAbout() {
   return (
@@ -21,21 +21,20 @@ export function GlareCardAbout() {
             strokeLinecap="round"
           />
         </svg> */}
-        <Code2Icon className="w-12 h-12 mb-4 text-yellow-400"/>
+        <Code2Icon className="w-12 h-12 mb-4 text-yellow-400" />
         <p className="font-bold text-white text-lg">Workshops Técnicos</p>
         <p className="font-normal text-base text-neutral-200 mt-4">
           Aprenda as últimas tecnologias em JavaScript e TypeScript com nossos workshops práticos.
         </p>
       </GlareCard>
       <GlareCard className="flex flex-col items-center justify-center">
-      <img 
+        <img
           className="h-6/12 w-full absolute inset-0 object-cover"
           src="/NorteJsMascote.jpeg"
-        >
-        </img>
+        ></img>
       </GlareCard>
       <GlareCard className="flex flex-col items-start justify-end py-8 px-6">
-        <UsersIcon className="w-12 h-12 mb-4 text-yellow-400"/>
+        <UsersIcon className="w-12 h-12 mb-4 text-yellow-400" />
         <p className="font-bold text-white text-lg">Networking</p>
         <p className="font-normal text-base text-neutral-200 mt-4">
           Conecte-se com outros desenvolvedores e expanda sua rede profissional.

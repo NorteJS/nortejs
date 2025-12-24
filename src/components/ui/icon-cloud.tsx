@@ -1,14 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
-import {
-  Cloud,
-  fetchSimpleIcons,
-  ICloud,
-  renderSimpleIcon,
-  SimpleIcon,
-} from "react-icon-cloud";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Cloud, fetchSimpleIcons, ICloud, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 
 export type DynamicCloudProps = {
   iconSlugs?: string[]; // Made iconSlugs optional
@@ -42,11 +37,7 @@ export const cloudProps: Omit<ICloud, "children"> = {
   },
 };
 
-export const renderCustomIcon = (
-  icon: SimpleIcon,
-  theme: string,
-  imageArray?: string[],
-) => {
+export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
   const minContrastRatio = theme === "dark" ? 2 : 1.2;
@@ -82,29 +73,24 @@ export default function IconCloud({
     }
   }, [iconSlugs]);
 
-  const renderedIcons = useMemo(() => {
+  const renderedIcons = () => {
     if (!data) return null;
 
-    return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light"),
-    );
-  }, [data, theme]);
+    return Object.values(data.simpleIcons).map((icon) => renderCustomIcon(icon, theme || "light"));
+  };
 
   return (
-    // @ts-ignore
-    <Cloud {...cloudProps}>
-      <>
-        <>{renderedIcons}</>
-        {imageArray &&
-          imageArray.length > 0 &&
-          imageArray.map((image, index) => {
-            return (
-              <a key={index} href="#" onClick={(e) => e.preventDefault()}>
-                <img height="42" width="42" alt="A globe" src={image} />
-              </a>
-            );
-          })}
-      </>
+    <Cloud {...cloudProps} containerProps={{ ...cloudProps.containerProps }}>
+      {renderedIcons()}
+      {imageArray &&
+        imageArray.length > 0 &&
+        imageArray.map((image, index) => {
+          return (
+            <a key={image ?? index} href="#" onClick={(e) => e.preventDefault()}>
+              <Image height={42} width={42} alt="A globe" src={image} />
+            </a>
+          );
+        })}
     </Cloud>
   );
 }

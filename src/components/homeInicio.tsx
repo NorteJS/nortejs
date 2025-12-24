@@ -1,6 +1,6 @@
 "use client";
+import { Github, Send } from "lucide-react";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
-import { Github, Link, Send } from 'lucide-react';
 
 export function TypewriterEffectSmoothDemo() {
   const words = [

@@ -1,37 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { MenuIcon, XIcon } from 'lucide-react'
-import { NavigationMenuDemo } from './navtest'
-import Image from 'next/image'
+import { motion } from "framer-motion";
+import { MenuIcon, XIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { NavigationMenuDemo } from "./navtest";
 
 const navItems = [
-  { name: 'Sobre', href: '/sobre' },
-  { name: 'Eventos', href: '/eventos' },
-  { name: 'Apoiadores', href: '/apoio' },
-  { name: 'Contato', href: '/contato' },
-]
+  { name: "Sobre", href: "/sobre" },
+  { name: "Eventos", href: "/eventos" },
+  { name: "Apoiadores", href: "/apoio" },
+  { name: "Contato", href: "/contato" },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="relative z-50 bg-black">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between  max-md:justify-between items-center"
+        <div
+          className="flex justify-between  max-md:justify-between items-center"
           style={{ marginTop: "-20px" }}
         >
           <Link href="/" className="text-white text-2xl font-bold">
             {/* Norte<span className="text-yellow-400">JS</span> */}
-            <Image
-              src="/logo.svg"
-              width={125}
-              className='mt-3'
-              height={25}
-              alt='Logo nortejs'
-            />
+            <Image src="/logo.svg" width={125} className="mt-3" height={25} alt="Logo nortejs" />
           </Link>
           <div className="hidden md:block mr-36">
             <NavigationMenuDemo />
@@ -63,6 +58,5 @@ export default function Navbar() {
         </motion.div>
       )}
     </nav>
-  )
+  );
 }
-

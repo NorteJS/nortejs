@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export const HoverCard = ({
   children,
   className = "",
 }: {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) => {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -20,9 +20,7 @@ export const HoverCard = ({
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="relative z-10 p-8">
-        {children}
-      </div>
+      <div className="relative z-10 p-8">{children}</div>
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-[#2D79C7] to-[#F7E018]"
         initial={{ opacity: 0 }}
@@ -32,6 +30,5 @@ export const HoverCard = ({
         transition={{ duration: 0.2 }}
       />
     </motion.div>
-  )
-}
-
+  );
+};

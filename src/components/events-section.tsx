@@ -1,43 +1,43 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { AnimatedText } from "./animated-text"
-import { useEffect, useMemo, useState } from "react"
-import type { EventItem } from "@/lib/events"
-import { fetchEvents } from "@/lib/get-events"
-import Image from "next/image"
-import { Calendar, MapPin, ExternalLink } from "lucide-react"
+import type { EventItem } from "@/lib/events";
+import { fetchEvents } from "@/lib/get-events";
+import { motion } from "framer-motion";
+import { Calendar, ExternalLink, MapPin } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { AnimatedText } from "./animated-text";
 
 function formatEventDate(iso: string) {
-  const date = new Date(iso)
-  if (Number.isNaN(date.getTime())) return iso
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
 
   return new Intl.DateTimeFormat("pt-BR", {
     day: "2-digit",
     month: "short",
     year: "numeric",
-  }).format(date)
+  }).format(date);
 }
 
 function eventTypeLabel(type: EventItem["type"]) {
   switch (type) {
     case "meetup":
-      return "Meetup"
+      return "Meetup";
     case "workshop":
-      return "Workshop"
+      return "Workshop";
     case "talks":
-      return "Palestras"
+      return "Palestras";
     case "networking":
-      return "Networking"
+      return "Networking";
     case "hackathon":
-      return "Hackathon"
+      return "Hackathon";
     default:
-      return "Evento"
+      return "Evento";
   }
 }
 
 function EventCard({ event, index }: { event: EventItem; index: number }) {
-  const [mapOpen, setMapOpen] = useState(false)
+  const [mapOpen, setMapOpen] = useState(false);
 
   return (
     <motion.div
@@ -64,10 +64,7 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
           {/* botão + preview do mapa (desktop): abre apenas ao hover no botão */}
           {event.venueMapUrl ? (
             <div className="hidden lg:block absolute bottom-4 left-4 right-4">
-              <div
-                className="relative"
-                onMouseLeave={() => setMapOpen(false)}
-              >
+              <div className="relative" onMouseLeave={() => setMapOpen(false)}>
                 <a
                   href={event.venueMapUrl}
                   target="_blank"
@@ -197,67 +194,64 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function EventsSection() {
-  const [events, setEvents] = useState<EventItem[] | null>(null)
+  const [events, setEvents] = useState<EventItem[] | null>(null);
 
   useEffect(() => {
-    let cancelled = false
+    let cancelled = false;
     fetchEvents()
       .then((data) => {
-        if (!cancelled) setEvents(data)
+        if (!cancelled) setEvents(data);
       })
       .catch(() => {
-        if (!cancelled) setEvents([])
-      })
+        if (!cancelled) setEvents([]);
+      });
     return () => {
-      cancelled = true
-    }
-  }, [])
+      cancelled = true;
+    };
+  }, []);
 
-  const content = useMemo(() => {
-    if (events === null) {
-      const skeletonCard = (
-        <div className="animate-pulse bg-black/30 rounded-xl border border-white/10 p-0 overflow-hidden">
-          <div className="h-52 md:h-56 lg:h-60 w-full bg-slate-700" />
-          <div className="p-6">
-            <div className="h-4 bg-slate-700 rounded w-3/4 mb-3" />
-            <div className="h-3 bg-slate-700 rounded w-1/2 mb-3" />
-            <div className="flex items-center gap-2 mt-4">
-              <div className="h-8 w-20 bg-slate-700 rounded-full" />
-              <div className="h-8 w-28 bg-slate-700 rounded-full" />
-            </div>
+  let content;
+  if (events === null) {
+    const skeletonCard = (
+      <div className="animate-pulse bg-black/30 rounded-xl border border-white/10 p-0 overflow-hidden">
+        <div className="h-52 md:h-56 lg:h-60 w-full bg-slate-700" />
+        <div className="p-6">
+          <div className="h-4 bg-slate-700 rounded w-3/4 mb-3" />
+          <div className="h-3 bg-slate-700 rounded w-1/2 mb-3" />
+          <div className="flex items-center gap-2 mt-4">
+            <div className="h-8 w-20 bg-slate-700 rounded-full" />
+            <div className="h-8 w-28 bg-slate-700 rounded-full" />
           </div>
         </div>
-      )
+      </div>
+    );
 
-      return (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i}>{skeletonCard}</div>
-          ))}
-        </div>
-      )
-    }
-
-    if (events.length === 0) {
-      return (
-        <div className="bg-black p-6 rounded-lg text-gray-300">
-          Ainda não publicamos a agenda. Volte em breve.
-        </div>
-      )
-    }
-
-    return (
+    content = (
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i}>{skeletonCard}</div>
+        ))}
+      </div>
+    );
+  } else if (events.length === 0) {
+    content = (
+      <div className="bg-black p-6 rounded-lg text-gray-300">
+        Ainda não publicamos a agenda. Volte em breve.
+      </div>
+    );
+  } else {
+    content = (
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {events.map((event, index) => (
           <EventCard key={event.id} event={event} index={index} />
         ))}
       </div>
-    )
-  }, [events])
+    );
+  }
 
   return (
     <section
@@ -275,6 +269,5 @@ export default function EventsSection() {
         {content}
       </div>
     </section>
-  )
+  );
 }
-

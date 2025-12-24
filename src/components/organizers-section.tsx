@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { AnimatedText } from "./animated-text"
+import Image from "next/image";
+import { AnimatedText } from "./animated-text";
 
 const organizers = [
   {
@@ -14,7 +14,7 @@ const organizers = [
     name: "Ivie",
     image: "/organizers/ivie.jpg",
   },
-]
+];
 
 export default function OrganizersSection() {
   return (
@@ -41,9 +41,7 @@ export default function OrganizersSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white font-semibold text-lg leading-tight">
-                    {person.name}
-                  </p>
+                  <p className="text-white font-semibold text-lg leading-tight">{person.name}</p>
                   <p className="text-gray-300 text-sm">Organização NorteJS</p>
                 </div>
               </div>
@@ -52,5 +50,5 @@ export default function OrganizersSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

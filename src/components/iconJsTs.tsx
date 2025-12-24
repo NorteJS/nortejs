@@ -1,4 +1,10 @@
-import IconCloud from "./ui/icon-cloud";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const IconCloud = dynamic(() => import("@/components/ui/icon-cloud"), {
+  ssr: false,
+});
 
 const slugs = [
   "typescript",
