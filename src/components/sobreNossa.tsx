@@ -31,7 +31,7 @@ export function GlareCardAbout() {
         <img
           className="h-6/12 w-full absolute inset-0 object-cover"
           src="/NorteJsMascote.jpeg"
-        ></img>
+        />
       </GlareCard>
       <GlareCard className="flex flex-col items-start justify-end py-8 px-6">
         <UsersIcon className="w-12 h-12 mb-4 text-yellow-400" />
