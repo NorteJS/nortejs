@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion";
 
 export const AnimatedText = ({ text, className }: { text: string; className?: string }) => {
   const words = text.split(" ");
