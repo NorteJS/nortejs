@@ -1,4 +1,3 @@
-"use client";
 import { Github, Send } from "lucide-react";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 
