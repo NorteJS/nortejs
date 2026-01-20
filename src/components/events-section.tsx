@@ -57,7 +57,7 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
           priority={index < 2}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60" />
 
         {/* ações no header */}
         <div className="absolute inset-0 p-4">
@@ -80,7 +80,7 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
                 {event.venueMapEmbedUrl ? (
                   <div
                     className={
-                      "absolute bottom-0 right-0 w-[280px] h-[168px] rounded-xl overflow-hidden border border-white/10 bg-black/40 transition-all duration-200 z-30 " +
+                      "absolute bottom-0 right-0 w-70 h-42 rounded-xl overflow-hidden border border-white/10 bg-black/40 transition-all duration-200 z-30 " +
                       (mapOpen
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-2 pointer-events-none")
@@ -256,10 +256,10 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="relative overflow-hidden py-20 max-sm:mt-0 sm:mt-4 md:mt-12 lg:pt-[60px] bg-blue-950"
+      className="relative overflow-hidden py-20 max-sm:mt-0 sm:mt-4 md:mt-12 lg:pt-15 bg-blue-950"
     >
       {/* degradê só em cima: do preto para a cor atual (transparente deixa aparecer bg-blue-950) */}
-      <div className="absolute inset-x-0 top-0 h-20 pointer-events-none bg-gradient-to-b from-black to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-20 pointer-events-none bg-linear-to-b from-black to-transparent" />
 
       <div className="container mx-auto px-4 pt-8 relative z-10">
         <AnimatedText

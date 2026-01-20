@@ -49,7 +49,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="block py-2 px-4 text-slate-300 hover:text-slate-50 hover:bg-gradient-to-r hover:from-slate-800/15 to-slate-50"
+              className="block py-2 px-4 text-slate-300 hover:text-slate-50 hover:bg-linear-to-r hover:from-slate-800/15 to-slate-50"
               onClick={() => setIsOpen(false)}
             >
               {item.name}

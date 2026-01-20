@@ -42,7 +42,7 @@ export function NavigationMenuDemo() {
             Eventos
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 p-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-black">
+            <ul className="grid gap-2 p-2 sm:w-100 md:w-125 md:grid-cols-2 lg:w-150 bg-black">
               {components.map((component) => (
                 <ListItem key={component.title} title={component.title} href={component.href}>
                   {component.description}
@@ -56,7 +56,7 @@ export function NavigationMenuDemo() {
             Sobre
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] bg-black">
+            <ul className="grid gap-2 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr] bg-black">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <Link

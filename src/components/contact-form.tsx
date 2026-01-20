@@ -75,7 +75,7 @@ export default function ContactForm({ toEmail }: Props) {
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="min-h-[140px] resize-y rounded-lg bg-white/5 border border-white/10 px-3 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-yellow-400/40"
+          className="min-h-35 resize-y rounded-lg bg-white/5 border border-white/10 px-3 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-yellow-400/40"
           placeholder="Escreva sua mensagem..."
         />
       </label>

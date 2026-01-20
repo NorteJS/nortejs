@@ -39,7 +39,7 @@ export default function OrganizersSection() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-white font-semibold text-lg leading-tight">{person.name}</p>
                   <p className="text-gray-300 text-sm">Organização NorteJS</p>

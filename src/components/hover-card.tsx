@@ -14,7 +14,7 @@ export const HoverCard = ({
 
   return (
     <motion.div
-      className={`relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 ${className}`}
+      className={`relative overflow-hidden rounded-xl bg-linear-to-r from-gray-800 to-gray-900 ${className}`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       whileHover={{ scale: 1.02 }}
@@ -22,7 +22,7 @@ export const HoverCard = ({
     >
       <div className="relative z-10 p-8">{children}</div>
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-[#2D79C7] to-[#F7E018]"
+        className="absolute inset-0 bg-linear-to-r from-[#2D79C7] to-[#F7E018]"
         initial={{ opacity: 0 }}
         animate={{
           opacity: isHovered ? 0.2 : 0,
