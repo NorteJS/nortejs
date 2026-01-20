@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, stagger, useAnimate, useInView } from "motion/react";
-import { useEffect } from "react";
+import { motion } from "motion/react";
 
 export const TypewriterEffect = ({
   words,
@@ -24,37 +23,41 @@ export const TypewriterEffect = ({
     };
   });
 
-  const [scope, animate] = useAnimate();
-  const isInView = useInView(scope);
-  useEffect(() => {
-    if (isInView) {
-      animate(
-        "span",
-        {
-          display: "inline-block",
-          opacity: 1,
-          width: "fit-content",
-        },
-        {
-          duration: 0.3,
-          delay: stagger(0.1),
-          ease: "easeInOut",
-        },
-      );
-    }
-  }, [isInView]);
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  } as const;
+
+  const charVariants = {
+    hidden: { opacity: 0, display: "none" },
+    visible: {
+      opacity: 1,
+      display: "inline-block",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+  } as const;
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope} className="inline">
+      <motion.div
+        className="inline"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {wordsArray.map((word, idx) => {
           return (
             <div key={`word-${idx}`} className="inline-block">
               {word.text.map((char, index) => (
                 <motion.span
-                  initial={{}}
-                  key={`char-${index}`}
-                  className={cn(`dark:text-white text-black opacity-0 hidden`, word.className)}
+                  variants={charVariants}
+                  key={`char-${idx}-${index}`}
+                  className={cn(`dark:text-white text-black inline-block`, word.className)}
                 >
                   {char}
                 </motion.span>
@@ -87,7 +90,7 @@ export const TypewriterEffect = ({
           repeatType: "reverse",
         }}
         className={cn(
-          "inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-green-500",
+          "inline-block rounded-sm w-1 h-4 md:h-6 lg:h-10 bg-green-500",
           cursorClassName,
         )}
       ></motion.span>
@@ -174,7 +177,7 @@ export const TypewriterEffectSmooth = ({
           repeat: Infinity,
           repeatType: "reverse",
         }}
-        className={cn("block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-green-500", cursorClassName)}
+        className={cn("block rounded-sm w-1 h-4 sm:h-6 xl:h-12 bg-green-500", cursorClassName)}
       ></motion.span>
     </div>
   );
